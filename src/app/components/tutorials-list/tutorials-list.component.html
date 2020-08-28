@@ -1,0 +1,86 @@
+<p>tutorials-list works!</p>
+
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by title"
+        [(ngModel)]="title"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchTitle()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Tutorials List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let tutorial of records; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveTutorial(tutorial, i)"
+      >
+        {{ tutorial.name }}
+      </li>
+    </ul>
+
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
+      Remove All
+    </button>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentTutorial">
+      <h4>Selected Product</h4>
+      <div>
+        <label><strong>Name :</strong></label> {{ currentTutorial.name }}
+      </div>
+      <div>
+        <label><strong>Year :</strong></label> {{ currentTutorial.year }}
+      </div>
+      <div>
+        <label><strong>Color:</strong></label> {{ currentTutorial.color }}
+      </div>
+      <div>
+        <label><strong>Pantone Value :</strong></label> {{ currentTutorial.pantone_value }}
+      </div>
+
+
+      <a class="badge badge-warning" routerLink="/tutorials/{{ currentTutorial.id }}">
+        Edit
+      </a>
+    </div>
+
+    <div *ngIf="!currentTutorial">
+      <br />
+      <p>Please click on a Tutorial...</p>
+    </div>
+  </div>
+</div>
+
+<hr> 
+<div class="list row">
+
+  <div class="col-md-6">
+    <h4>Products  List</h4>
+    <ul class="list-group" *ngFor="let product of records">
+      <li> <b> Product ID  : {{ product.id }} </b>
+        <ul> 
+          <li>Name : {{ product.name }} </li>
+          <li>Year : {{ product.year }} </li>
+          <li>Color : {{ product.color }} </li>
+          <li>Value : {{ product.pantone_value }} </li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+</div>
