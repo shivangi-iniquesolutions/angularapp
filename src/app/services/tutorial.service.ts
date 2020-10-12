@@ -12,6 +12,16 @@ export class TutorialService {
 
   constructor(private http: HttpClient) { }
 
+  private data; 
+
+  setNotification(value) {      
+    this.data = value;  
+  }
+  
+  getNotification() {      
+    return this.data;  
+  }
+
   getAll(): Observable<any> {
     return this.http.get(baseUrl);
   }

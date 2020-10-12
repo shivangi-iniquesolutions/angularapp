@@ -61,6 +61,7 @@ export class TutorialDetailsComponent implements OnInit {
         response => {
           console.log(response);
           this.message = 'The Record was updated successfully!';
+          this.router.navigate(['/tutorials']);
         },
         error => {
           console.log(error);
@@ -73,6 +74,7 @@ export class TutorialDetailsComponent implements OnInit {
         response => {
           console.log(response);
           console.log('record Deleted ');
+          this.tutorialService.setNotification('Deleted succesfully ' );
           this.router.navigate(['/tutorials']);
         },
         error => {

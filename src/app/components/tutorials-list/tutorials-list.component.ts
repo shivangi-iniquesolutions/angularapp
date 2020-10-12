@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EMPTY } from 'rxjs';
 import { TutorialService } from 'src/app/services/tutorial.service';
 
 @Component({
@@ -8,16 +9,21 @@ import { TutorialService } from 'src/app/services/tutorial.service';
 })
 export class TutorialsListComponent implements OnInit {
 
+  CheckNotification;
+  myNotification:any; 
   records:any;
   tutorials: any;
   currentTutorial = null;
   currentIndex = -1;
   title = '';
 
-  constructor(private tutorialService: TutorialService) { }
+  constructor(private tutorialService: TutorialService) { 
+    this.myNotification = this.tutorialService.getNotification();
+  }
 
   ngOnInit(): void {
     this.retrieveTutorials();
+    
   }
 
   retrieveTutorials(): void {

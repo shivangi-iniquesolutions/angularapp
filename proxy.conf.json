@@ -1,0 +1,8 @@
+{  
+    "/api/*": {  
+       "target": "https://nodejslearn.herokuapp.com/",  
+       "secure": false,  
+       "changeOrigin" : true,
+       "logLevel": "debug"  
+    }  
+ }
