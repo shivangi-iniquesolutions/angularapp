@@ -4,11 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
-  selector: 'app-adduser',
-  templateUrl: './adduser.component.html',
-  styleUrls: ['./adduser.component.css']
+  selector: 'app-user-registration',
+  templateUrl: './user-registration.component.html',
+  styleUrls: ['./user-registration.component.css']
 })
-export class AdduserComponent implements OnInit {
+export class UserRegistrationComponent implements OnInit {
 
   constructor(
     private userservice: UserService, 
@@ -24,11 +24,9 @@ export class AdduserComponent implements OnInit {
     gender: '',
     phone: '',
     password: '',
-    addedby:''
+    
   };
   submitted = false;
-
-  
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -38,7 +36,6 @@ export class AdduserComponent implements OnInit {
       console.log(authUser.data._id);   
     }else{
       const authUser = null; 
-      // console.log('not added user. This is registerd ');
     }
 
   }
@@ -50,7 +47,7 @@ export class AdduserComponent implements OnInit {
       gender: this.user.gender,
       phone: this.user.phone,
       password: this.user.password,
-      role: 'user'
+      
     };
 
     this.userservice.addUser(data)
@@ -59,7 +56,7 @@ export class AdduserComponent implements OnInit {
         response => {
           console.log(response);
           this.submitted = true;
-          this.router.navigate(['/allusers']);
+          this.router.navigate(['/login']);
         },
         error => {
           console.log(error);
@@ -74,7 +71,7 @@ export class AdduserComponent implements OnInit {
       gender: '',
       phone: '',
       password: '',
-      addedby:''
+  
     };
   }
 

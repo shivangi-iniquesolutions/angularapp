@@ -9,6 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { AllusersComponent } from './allusers/allusers.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
+import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuard } from './_helpers/auth.guard';
 import { from } from 'rxjs';
@@ -19,10 +22,13 @@ const routes: Routes = [
   { path: 'tutorials/:id', component: TutorialDetailsComponent },
   { path: 'add', component: AddTutorialComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboardAdmin', component: DashboardAdminComponent },
+  { path: 'dashboardUser', component: DashboardUserComponent },
   { path: 'allusers', component: AllusersComponent },
   { path: 'adduser', component: AdduserComponent },
+  { path: 'userRegistration', component: UserRegistrationComponent },
   { path: 'user/:id', component: UserDetailsComponent },
   { path: '**', component: PageNotFoundComponent }
 ];

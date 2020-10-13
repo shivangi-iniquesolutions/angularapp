@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
       console.log(user);
-      this.roles = user.roles;
+      //this.roles = user.roles;
       this.username = user;
     }
   }

@@ -21,6 +21,9 @@ import { TestService } from './test.service';
 import { AllusersComponent } from './allusers/allusers.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
+import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
 
 
 @NgModule({
@@ -36,7 +39,10 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     AdminComponent,
     AllusersComponent,
     AdduserComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    UserRegistrationComponent,
+    DashboardAdminComponent,
+    DashboardUserComponent
   ],
   imports: [
     BrowserModule,
