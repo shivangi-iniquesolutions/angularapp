@@ -7,23 +7,21 @@
         <tr>
             <th> Srno. </th>
             <th> Name </th>
-            <th> Email </th>
+            <th> Username  </th>
             <th> Phone </th>
-            <th> Gender </th>
             <th> Create Date </th>
             <th> Action  </th>
         </tr>
 
-        <tr *ngFor="let user of records">
-            <td> {{ user._id }} </td>
-            <td> {{ user.name }} </td>
-            <td> {{ user.email }} </td>
+        <tr *ngFor="let user of users">
+            <td> {{ user.id }} </td>
+            <td> {{ user.firstname }} {{ user.last_name }} </td>
+            <td> {{ user.username }} </td>
             <td> {{ user.phone }} </td>
-            <td> {{ user.gender }} </td>
-            <td> {{ user.create_date }} </td>
+            <td> {{ user.created_at }} </td>
             <td>
-                <a class="badge badge-warning" routerLink="/user/{{ user._id }}"> Edit </a>  
-                <button class="badge badge-danger mr-2" (click)="deleteUser(user._id)">
+                <a class="badge badge-warning" routerLink="/user/{{ user.id }}"> Edit </a>  
+                <button class="badge badge-danger mr-2" (click)="deleteUser(user.id)">
                     Delete
                 </button> 
             </td>

@@ -19,12 +19,12 @@ export class AdduserComponent implements OnInit {
 
   isLoggedIn = false;
   user = {
-    name: '',
-    email: '',
-    gender: '',
-    phone: '',
+    username: '',
     password: '',
-    addedby:''
+    firstname: '',
+    last_name : '',
+    phone: '',
+    user_role:''
   };
   submitted = false;
 
@@ -38,23 +38,22 @@ export class AdduserComponent implements OnInit {
       console.log(authUser.data._id);   
     }else{
       const authUser = null; 
-      // console.log('not added user. This is registerd ');
     }
 
   }
 
   saveUser(): void {
     const data = {
-      name: this.user.name,
-      email: this.user.email,
-      gender: this.user.gender,
-      phone: this.user.phone,
+      username: this.user.username,
       password: this.user.password,
-      role: 'user'
+      firstname: this.user.firstname,
+      last_name: this.user.last_name,
+      phone: this.user.phone,
+      user_role: '2'
     };
 
     this.userservice.addUser(data)
-      
+
       .subscribe(
         response => {
           console.log(response);
@@ -62,19 +61,21 @@ export class AdduserComponent implements OnInit {
           this.router.navigate(['/allusers']);
         },
         error => {
-          console.log(error);
+          //console.log(error);
+          console.log('error here ');
+          console.log(data);
         });
   }
 
   newUser(): void {
     this.submitted = false;
     this.user = {
-      name: '',
-      email: '',
-      gender: '',
-      phone: '',
+      username: '',
       password: '',
-      addedby:''
+      firstname: '',
+      last_name : '',
+      phone: '',
+      user_role:''
     };
   }
 

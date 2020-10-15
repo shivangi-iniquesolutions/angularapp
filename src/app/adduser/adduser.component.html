@@ -3,43 +3,54 @@
     <div class="submit-form">
       <div *ngIf="!submitted">
         <div class="form-group">
-          <label class="form-label" for="name">Name </label>
+          <label class="form-label" for="username">Username </label>
           <input
             type="text"
             class="form-control"
-            id="name"
+            id="username"
             required
-            [(ngModel)]="user.name"
-            name="name"
+            [(ngModel)]="user.username"
+            name="username"
           />
         </div>
   
         <div class="form-group">
-            <label class="form-label" for="email">email</label>
+            <label class="form-label" for="password">Password</label>
             <input
-              type="text"
+              type="password"
               class="form-control"
-              id="email"
+              id="password"
               required
-              [(ngModel)]="user.email"
-              name="email"
+              [(ngModel)]="user.password"
+              name="password"
             />
         </div>
           
         <div class="form-group">
-            <label class="form-label" for="gender">gender</label>
+            <label class="form-label" for="firstname">First Name</label>
             <input
               type="text"
               class="form-control"
-              id="gender"
+              id="firstname"
               required
-              [(ngModel)]="user.gender"
-              name="gender"
+              [(ngModel)]="user.firstname"
+              name="firstname"
             />
         </div>       
 
         <div class="form-group">
-          <label class="form-label" for="phone">phone</label>
+          <label class="form-label" for="last_name">Last Name </label>
+          <input
+            type="text"
+            class="form-control"
+            id="last_name"
+            required
+            [(ngModel)]="user.last_name"
+            name="last_name"
+          />
+      </div> 
+        <div class="form-group">
+          <label class="form-label" for="phone">Phone  </label>
           <input
             type="text"
             class="form-control"
@@ -47,17 +58,6 @@
             required
             [(ngModel)]="user.phone"
             name="phone"
-          />
-      </div> 
-        <div class="form-group">
-          <label class="form-label" for="password">password </label>
-          <input
-            type="password"
-            class="form-control"
-            id="password"
-            required
-            [(ngModel)]="user.password"
-            name="password"
           />
         </div>
   

@@ -27,7 +27,7 @@ export class AllusersComponent implements OnInit {
           this.users = data;
           this.records = this.users.data;
           console.log(this.users);
-          console.log(this.records);
+          ///console.log(this.records);
           console.log('Users  here ');
         },
         error => {
