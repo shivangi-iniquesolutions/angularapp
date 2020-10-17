@@ -13,6 +13,7 @@ export class UserDetailsComponent implements OnInit {
   currentUser = null;
   message = '';
   UserID = this.route.snapshot.paramMap.get('id');
+  
 
   constructor(
     private userService: UserService,
@@ -30,24 +31,36 @@ export class UserDetailsComponent implements OnInit {
         .subscribe(
           data => {
             this.currentUser = data;
-            this.currentRecord = this.currentUser.data;
-            console.log(this.currentRecord);
-            console.log(data);
+            this.currentRecord = this.currentUser[0];
+            //console.log(this.currentRecord);
+            //console.log(data);
           },
           error => {
             console.log(error);
           });
     }
 
-    
+
     updateUser(): void {
-      console.log(this.currentUser.data);
-      this.userService.update(this.UserID, this.currentUser.data)
+      
+      const data = {
+        firstname: this.currentUser.firstname,
+        last_name: this.currentUser.last_name,
+        phone: this.currentUser.phone,
+        user_role: '2'
+      };
+
+      //console.log(data);
+      console.log(this.currentUser[0]);
+      this.userService.update(this.UserID, this.currentUser[0])
         .subscribe(
-          response => {
-            console.log(response);
+          response => { 
+            
+            console.log(this.UserID);
+            
+            //console.log(response);
             this.message = 'The Record was updated successfully!';
-            //this.router.navigate(['/allusers']);
+            this.router.navigate(['/allusers']);
           },
           error => {
             console.log(error);
