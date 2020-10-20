@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-//const baseUrl = 'https://demo.iniquesolutions.com/api/user';
-const baseUrl = 'http://127.0.0.1:8000/api/user';
+const baseUrl = 'https://demo.iniquesolutions.com/api/user';
+//const baseUrl = 'http://127.0.0.1:8000/api/user';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +27,8 @@ export class UserService {
     return this.http.put(`${baseUrl}/${id}`, data, {responseType: 'text'});
   }
 
-  delete(id): Observable<any> {
-    return this.http.delete(`${baseUrl}/${id}`);
+  delete(data): Observable<any> {
+    return this.http.post(baseUrl+'/delete', data);
   }
 
 }

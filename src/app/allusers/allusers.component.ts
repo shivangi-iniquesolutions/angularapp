@@ -36,16 +36,21 @@ export class AllusersComponent implements OnInit {
   }
 
   deleteUser(id): void {
-    this.userservice.delete(id)
+
+    const data = {
+      userid: id,
+    };
+    console.log(data);
+    this.userservice.delete(data)
       .subscribe(
         response => {
           console.log(response);
           alert('record Deleted ');
           window.location.reload();
-
         },
         error => {
-          console.log(error);
+          //console.log(error);
+          window.location.reload();
         });
   }
 
