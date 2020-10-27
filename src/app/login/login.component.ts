@@ -24,28 +24,33 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
-      this.roles = this.tokenStorage.getUser().roles;
+      this.roles = this.tokenStorage.getUser();
+      console.log(this.roles);
     }
   }
 
   onSubmit(): void {
+    console.log(this.form);
     this.authService.login(this.form).subscribe(
       data => {
-        this.tokenStorage.saveToken(data.accessToken);
+        console.log(data);
+        this.tokenStorage.saveToken(data.token);
         this.tokenStorage.saveUser(data);
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         const user = this.tokenStorage.getUser();
-        console.log(user.data.email);
-        if(user.data.email == 'admin@admin.com'){
+        console.log(user.data);
+
+        if(user.user.role_id == 1){
+          console.log('admin here ');
           this.router.navigate(['/dashboardAdmin']);
         }else{
+          console.log('user here ');
           this.router.navigate(['/dashboardUser']);
         }
-        //this.reloadPage();
 
-        
+        //this.reloadPage();
       },
       err => {
         this.errorMessage = err.error.message;
