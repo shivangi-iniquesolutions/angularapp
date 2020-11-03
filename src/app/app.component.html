@@ -3,26 +3,29 @@
     <a href="#" class="navbar-brand">MyApp</a>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
-        <a href="/home" class="nav-link" routerLink="home">Home </a>
+        <a href="/home" class="nav-link" routerLink="home" *ngIf="!isLoggedIn">Home </a>
+      </li>
+
+
+      <li class="nav-item">
+        <a href="/dashboardAdmin" class="nav-link" routerLink="dashboardAdmin" *ngIf="isLoggedIn && roleAdmin"> Admin Dashboard </a>
       </li>
       <li class="nav-item">
-        <a href="/home" class="nav-link" routerLink="home" *ngIf="isLoggedIn">Dashboard </a>
+        <a href="/dashboardUser" class="nav-link" routerLink="dashboardUser" *ngIf="isLoggedIn && roleUser">User Dashboard </a>
       </li>
       <li class="nav-item">
-        <a  href="/allusers" class="nav-link">All Users </a>
+        <a  href="/allusers" class="nav-link" *ngIf="isLoggedIn && roleAdmin">All Users </a>
+      </li>
+
+      <li class="nav-item">
+        <a routerLink="tutorials" class="nav-link" *ngIf="isLoggedIn && roleUser">Tutorials List</a>
       </li>
       <li class="nav-item">
-        <a  href="/tutorials" class="nav-link">Tutorials List </a>
+        <a routerLink="add" class="nav-link" *ngIf="isLoggedIn && roleUser">Add Tutorial</a>
       </li>
-      <li class="nav-item">
-        <a routerLink="tutorials" class="nav-link" *ngIf="isLoggedIn">Tutorials</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="add" class="nav-link" >Add</a>
-      </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
-      </li>
+      </li> -->
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">

@@ -19,17 +19,17 @@ import { from } from 'rxjs';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'tutorials', component: TutorialsListComponent, canActivate:[AuthGuard] },
-  { path: 'tutorials/:id', component: TutorialDetailsComponent },
-  { path: 'add', component: AddTutorialComponent },
+  { path: 'tutorials/:id', component: TutorialDetailsComponent, canActivate:[AuthGuard] },
+  { path: 'add', component: AddTutorialComponent, canActivate:[AuthGuard] },
   { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboardAdmin', component: DashboardAdminComponent },
-  { path: 'dashboardUser', component: DashboardUserComponent },
-  { path: 'allusers', component: AllusersComponent },
-  { path: 'adduser', component: AdduserComponent },
+  { path: 'dashboardAdmin', component: DashboardAdminComponent, canActivate:[AuthGuard] },
+  { path: 'dashboardUser', component: DashboardUserComponent, canActivate:[AuthGuard] },
+  { path: 'allusers', component: AllusersComponent, canActivate:[AuthGuard] },
+  { path: 'adduser', component: AdduserComponent, canActivate:[AuthGuard] },
   { path: 'userRegistration', component: UserRegistrationComponent },
-  { path: 'user/:id', component: UserDetailsComponent },
+  { path: 'user/:id', component: UserDetailsComponent, canActivate:[AuthGuard] },
   { path: '**', component: PageNotFoundComponent }
 ];
 

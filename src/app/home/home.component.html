@@ -1,25 +1,16 @@
 
 <div>
-  <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="isLoggedIn" >
-    <div class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a  href="/tutorials" class="nav-link">Tutorials</a>
-      </li>
-      <li class="nav-item">
-        <a href="/add" class="nav-link">Add</a>
-      </li>
-    </div>
-  </nav>
-
   <div class="container mt-3">
     <router-outlet></router-outlet>
   </div>
 </div>
 
-<div class="container">
-
+<div class="container" >
+  
+    
     <header class="jumbotron">
       <h4> Hello.. This is HomePage </h4>
+      <img src="assets/img/my-website.jpg" >
       <div *ngIf="isLoggedIn">
         <p>Welcome To My APP </p> 
         <p> Your Token Number is : {{username.token }} </p>

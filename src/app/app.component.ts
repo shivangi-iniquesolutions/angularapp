@@ -13,6 +13,8 @@ export class AppComponent {
   title = 'Angular10Crud';
   private roles: string[];
   isLoggedIn = false;
+  roleAdmin = false;
+  roleUser = false;
   username: string;
   testMessage$: Observable<string>;  
 
@@ -27,11 +29,18 @@ export class AppComponent {
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
-      this.roles = user.roles;
+      this.roles = user.user.role_id;
+      if(user.user.role_id == 1){
+        this.roleAdmin = true;
+        console.log('Admin Here');
+      }else{
+        this.roleUser = true;
+        console.log('User Here');
+      }
       console.log('welcome user ');
 
-
-      this.username = user.username;
+      this.username = user.user.username;
+      console.log(this.username);
     }
   }
   

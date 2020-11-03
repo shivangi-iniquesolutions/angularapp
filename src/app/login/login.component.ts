@@ -40,13 +40,15 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         const user = this.tokenStorage.getUser();
-        console.log(user.data);
+        console.log(user.user);
 
         if(user.user.role_id == 1){
           console.log('admin here ');
+          //this.reloadPage();
           this.router.navigate(['/dashboardAdmin']);
         }else{
           console.log('user here ');
+          //this.reloadPage();
           this.router.navigate(['/dashboardUser']);
         }
 
